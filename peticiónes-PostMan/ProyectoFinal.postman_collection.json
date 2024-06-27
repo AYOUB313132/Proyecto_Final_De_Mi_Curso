@@ -1,0 +1,1321 @@
+{
+	"info": {
+		"_postman_id": "ed49629f-742c-4aeb-a6e2-bd4d2c30c840",
+		"name": "ProyectoFinal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32346645",
+		"_collection_link": "https://orange-capsule-748951.postman.co/workspace/New-Team-Workspace~6b7e3f4f-1b76-43ec-9c47-1e634ccbb50f/collection/32335055-ed49629f-742c-4aeb-a6e2-bd4d2c30c840?action=share&source=collection_link&creator=32346645"
+	},
+	"item": [
+		{
+			"name": "MicroServicioUsuarios",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Javier\",\r\n    \"apellido\" : \"Alonso\",\r\n    \"email\" : \"Alonso@gmail.com\",\r\n    \"contraseña\" : \"1234\",\r\n    \"genero\" : \"male\",\r\n    \"fechaNacimiento\" : \"1978-01-01\",\r\n    \"direccion\" : \"Calle Luis\",\r\n    \"movil\" : 123456789,\r\n    \"ciudad\" : \"Derio\",\r\n    \"codigoPostal\" : 48213,\r\n    \"provincia\" : \"Bizkaia\",\r\n    \"pais\" : \"España\",\r\n    \"imagen\"  : \"alonso.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8094/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"hassen@gmail.com\",\r\n    \"contraseña\" : \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8094/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1OTM1NDI0LCJleHAiOjE3MTYwMjE4MjR9.FBizex-af5PSlTPv4r-ICIDUjAjvB7UHS83Znlys5lM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nombre\": \"Iñigo\",\r\n        \"apellido\": \"Martinez\",\r\n        \"contraseña\": \"1234\",\r\n        \"roleId\": 1,\r\n        \"genero\": \"male\",\r\n        \"fechaNacimiento\": \"1998-12-02T23:00:00.000+00:00\",\r\n        \"direccion\": \"Plaza Mayor 789\",\r\n        \"movil\": 444111222,\r\n        \"email\": \"carlos@example.com\",\r\n        \"ciudad\": \"Bilbao\",\r\n        \"codigoPostal\": 48000,\r\n        \"provincia\": \"Bizkaia\",\r\n        \"pais\": \"España\"\r\n    },",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8094/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ModificarUsuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzEzMTA0NDQ3LCJleHAiOjE3MTMxOTA4NDd9.rX4qrqpN_74gi993SYHLtn41JCerlhp2HO1Bp7KhD8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Iñigo\",\r\n    \"apellido\": \"Chueca\",\r\n    \"email\": \"iñigo@gmail.com\",\r\n    \"contraseña\": \"4321\",\r\n    \"genero\": \"male\",\r\n    \"fechaNacimiento\": \"1970-01-01\",\r\n    \"direccion\": \"Calle Areta\",\r\n    \"movil\": 123456789,\r\n    \"ciudad\": \"Bilbao\",\r\n    \"codigoPostal\": 48015,\r\n    \"provincia\": \"Bizkaia\",\r\n    \"pais\": \"España\",\r\n    \"imagen\": \"iñigo.jpg\",\r\n    \"role\": \"PROFESOR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8094/usuarios/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"usuarios",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUsuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzEzNzk0MzMxLCJleHAiOjE3MTM4ODA3MzF9.ttVvGvw5CBerbG8V6CdflC1atrshrxJMxxonqPdV9R0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8094/usuarios/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"usuarios",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCursosByUsaurio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1OTM1NDI0LCJleHAiOjE3MTYwMjE4MjR9.FBizex-af5PSlTPv4r-ICIDUjAjvB7UHS83Znlys5lM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8094/usuarios/1/cursos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"usuarios",
+								"1",
+								"cursos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DesinscribirUsuarioDeCursou",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1OTM1NDI0LCJleHAiOjE3MTYwMjE4MjR9.FBizex-af5PSlTPv4r-ICIDUjAjvB7UHS83Znlys5lM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8094/usuarios/1/curso/2008",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"usuarios",
+								"1",
+								"curso",
+								"2008"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MicroServicioProfesores",
+			"item": [
+				{
+					"name": "Profesores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzEzNzk0MzMxLCJleHAiOjE3MTM4ODA3MzF9.ttVvGvw5CBerbG8V6CdflC1atrshrxJMxxonqPdV9R0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8094/profesores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"profesores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AñadirProfesores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzEzNzk0MzMxLCJleHAiOjE3MTM4ODA3MzF9.ttVvGvw5CBerbG8V6CdflC1atrshrxJMxxonqPdV9R0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Iñigo\",\r\n    \"apellido\" : \"Chueca\",\r\n    \"imagen\"  : \"iñigo.jpg\",\r\n    \"especialidad\" : \"Programacios\",\r\n    \"linkTwitter\" : \"link1\",\r\n    \"linkLinkedin\" : \"link2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8094/profesores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"profesores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ModificarProfesores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzEzNzk0MzMxLCJleHAiOjE3MTM4ODA3MzF9.ttVvGvw5CBerbG8V6CdflC1atrshrxJMxxonqPdV9R0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Marta\",\r\n    \"apellido\" : \"Torre\",\r\n    \"imagen\"  : \"martaTorre.jpg\",\r\n    \"especialidad\" : \"Base de Datos\",\r\n    \"linkTwitter\" : \"sadsad\",\r\n    \"linkLinkedin\" : \"xcvxcfsd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8094/profesores/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"profesores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProfesores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzEzNzk0MzMxLCJleHAiOjE3MTM4ODA3MzF9.ttVvGvw5CBerbG8V6CdflC1atrshrxJMxxonqPdV9R0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8094/profesores/1004",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"profesores",
+								"1004"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MicroServicioCursos",
+			"item": [
+				{
+					"name": "Cursos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreCurso\": \"Base de Datos Oracle\",\r\n    \"detallesDelCurso\": \"Aprender base de datos DDL\",\r\n    \"fechaInicio\": \"2024-03-14T23:00:00.000+00:00\",\r\n    \"fechaFinal\": \"2024-05-19T22:00:00.000+00:00\",\r\n    \"profesorId\": 2,\r\n    \"tipo\": {\r\n        \"tipoId\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8094/cursos",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"cursos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cursos/Tipo-cursos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE2MDQ1MzAxLCJleHAiOjE3MTYxMzE3MDF9.5_FfctNq5juPSmgu9z3Wz2v2ffKLkrkICCTfCHotI1s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"tipoNombre\": \"Idiomas Modified\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8094/cursos/tipo-cursos",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"cursos",
+								"tipo-cursos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AñadirCurso",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzEzNzczMDc0LCJleHAiOjE3MTM4NTk0NzR9.h8WxWXgs_dPgtokj1kSsIDpCZWtHOj41lJ2DpnFy_1g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreCurso\" : \"Test\",\r\n    \"detallesDelCurso\" : \"Test\",\r\n    \"fechaInicio\" : \"2024-09-01\",\r\n    \"fechaFinal\" : \"2024-12-15\",\r\n    \"profesorId\" : 2,\r\n    \"tipo\": {\r\n        \"tipoId\": 3\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8094/cursos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"cursos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista_Cursos/Profesor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8092/cursos/profesor/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"cursos",
+								"profesor",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista_Cursos/Tipo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8092/cursos/tipo/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8092",
+							"path": [
+								"cursos",
+								"tipo",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCurso",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzEzNzk0MzMxLCJleHAiOjE3MTM4ODA3MzF9.ttVvGvw5CBerbG8V6CdflC1atrshrxJMxxonqPdV9R0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8094/cursos/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"cursos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ModificarCurso",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzEzNzk0MzMxLCJleHAiOjE3MTM4ODA3MzF9.ttVvGvw5CBerbG8V6CdflC1atrshrxJMxxonqPdV9R0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreCurso\": \"Spring Boot 3\",\r\n    \"detallesDelCurso\": \"Aprender los fundamontales del mejor Framwork\",\r\n    \"fechaInicio\": \"2024-09-01\",\r\n    \"fechaFinal\": \"2024-12-15\",\r\n    \"profesorId\": 3,\r\n    \"tipo\": {\r\n        \"tipoId\": 1\r\n    },\r\n    \"imagen\": \"spring.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8094/cursos/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"cursos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetNumeroCursosPorTipo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE2MDIzMjg0LCJleHAiOjE3MTYxMDk2ODR9.KfP7gTmtdg9lfMcn-D6U1D2dJ7-AeXb2lzRuimh4h-s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8094/cursos/tipo-cursos/numero/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"cursos",
+								"tipo-cursos",
+								"numero",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MicroServicioClases",
+			"item": [
+				{
+					"name": "Clases",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1NTMzMTE5LCJleHAiOjE3MTU2MTk1MTl9.50rB8tWeuaE-e2Y91ZecFXefnI_9ERwNFGDhSomRKK8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"profesorId\": \"1\",\r\n    \"cursoId\": \"1\",\r\n    \"horario\": \"08h30 - 11h30\",\r\n    \"aula\": \"304\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8094/clases",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"clases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AñadirClase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzEzNjk0MDcxLCJleHAiOjE3MTM3ODA0NzF9.8f9K-gWCyllykTRglYo9ds5cGWA42f-hXkMg6zNtFsg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"cursoId\": 1,\r\n        \"profesorId\": 4,\r\n        \"horario\": \"17h00 - 19h00\",\r\n        \"aula\": 3\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8094/clases",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"clases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clases/Inscripciones",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1NTMzMTE5LCJleHAiOjE3MTU2MTk1MTl9.50rB8tWeuaE-e2Y91ZecFXefnI_9ERwNFGDhSomRKK8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8093/clases/inscripciones",
+							"host": [
+								"localhost"
+							],
+							"port": "8093",
+							"path": [
+								"clases",
+								"inscripciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clases/alumnosMatriculado/IdClase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1NTMzMTE5LCJleHAiOjE3MTU2MTk1MTl9.50rB8tWeuaE-e2Y91ZecFXefnI_9ERwNFGDhSomRKK8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8093/clases/alumnos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8093",
+							"path": [
+								"clases",
+								"alumnos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clases/RegistrarAlumno",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"alumnoId\": 1,\r\n        \"clase\": {\r\n            \"claseId\": 1\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8093/clases/registrar",
+							"host": [
+								"localhost"
+							],
+							"port": "8093",
+							"path": [
+								"clases",
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ServicioImagenes",
+			"item": [
+				{
+					"name": "Añadirimagenes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE0OTg4NTU1LCJleHAiOjE3MTUwNzQ5NTV9.-beHYAaBeGncL3XLbOaJsC7Td-3ghhmkcTJnT8IyW2c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imagen",
+									"type": "file",
+									"src": "/C:/Users/MT/Pictures/uefa.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8094/imagenes?imagen",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"imagenes"
+							],
+							"query": [
+								{
+									"key": "imagen",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MicroServicioBlogs",
+			"item": [
+				{
+					"name": "AñadirBlogs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1MDI5MTgzLCJleHAiOjE3MTUxMTU1ODN9.8V4p73glSsGuk4pTaaMe7FmRslLGngbNdJATBIS65h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Blog 5\",\r\n    \"parrafo\": \"Hay muchas variaciones de los pasajes de Lorem Ipsum disponibles, pero la mayoría sufrió alteraciones en alguna manera, ya sea porque se le agregó humor, o palabras aleatorias que no parecen ni un poco creíbles. Si vas a utilizar un pasaje de Lorem Ipsum, necesitás estar seguro de que no hay nada avergonzante escondido en el medio del texto. Todos los generadores de Lorem Ipsum que se encuentran en Internet tienden a repetir trozos predefinidos cuando sea necesario, haciendo a este el único generador verdadero (válido) en la Internet. Usa un diccionario de mas de 200 palabras provenientes del latín, combinadas con estructuras muy útiles de sentencias, para generar texto de Lorem Ipsum que parezca razonable. Este Lorem Ipsum generado siempre estará libre de repeticiones, humor agregado o palabras no características del lenguaje, etc.\",\r\n    \"imagen\": \"trec\",\r\n    \"fecha\": \"2022-05-07T00:00:00.000+00:00\",\r\n    \"categoria\": {\r\n        \"id\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8094/blogs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBlogs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1MDI5MTgzLCJleHAiOjE3MTUxMTU1ODN9.8V4p73glSsGuk4pTaaMe7FmRslLGngbNdJATBIS65h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8094/blogs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteBlog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1MDI5MTgzLCJleHAiOjE3MTUxMTU1ODN9.8V4p73glSsGuk4pTaaMe7FmRslLGngbNdJATBIS65h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8094/blogs/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"blogs",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ModificarBlog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1MDI5MTgzLCJleHAiOjE3MTUxMTU1ODN9.8V4p73glSsGuk4pTaaMe7FmRslLGngbNdJATBIS65h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Blog 6\",\r\n    \"parrafo\": \"Hay muchas variaciones de los pasajes de Lorem Ipsum disponibles, pero la mayoría sufrió alteraciones en alguna manera, ya sea porque se le agregó humor, o palabras aleatorias que no parecen ni un poco creíbles. Si vas a utilizar un pasaje de Lorem Ipsum, necesitás estar seguro de que no hay nada avergonzante escondido en el medio del texto. Todos los generadores de Lorem Ipsum que se encuentran en Internet tienden a repetir trozos predefinidos cuando sea necesario, haciendo a este el único generador verdadero (válido) en la Internet. Usa un diccionario de mas de 200 palabras provenientes del latín, combinadas con estructuras muy útiles de sentencias, para generar texto de Lorem Ipsum que parezca razonable. Este Lorem Ipsum generado siempre estará libre de repeticiones, humor agregado o palabras no características del lenguaje, etc.\",\r\n    \"imagen\": \"Dos\",\r\n    \"fecha\": \"2022-06-21\",\r\n    \"descripcion\" : \"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...\",\r\n    \"categoria\": {\r\n        \"id\" : 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8094/blogs/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"blogs",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AñadirCategoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1MDI5MTgzLCJleHAiOjE3MTUxMTU1ODN9.8V4p73glSsGuk4pTaaMe7FmRslLGngbNdJATBIS65h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Web Development\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8094/blogs/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"blogs",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCategorias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1MDI5MTgzLCJleHAiOjE3MTUxMTU1ODN9.8V4p73glSsGuk4pTaaMe7FmRslLGngbNdJATBIS65h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8094/blogs/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"blogs",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1MDI5MTgzLCJleHAiOjE3MTUxMTU1ODN9.8V4p73glSsGuk4pTaaMe7FmRslLGngbNdJATBIS65h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8094/blogs/categorias/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"blogs",
+								"categorias",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ModificarCategoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1MDI5MTgzLCJleHAiOjE3MTUxMTU1ODN9.8V4p73glSsGuk4pTaaMe7FmRslLGngbNdJATBIS65h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Online Marketing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8094/blogs/categorias/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"blogs",
+								"categorias",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inscripciones",
+			"item": [
+				{
+					"name": "Inscripciones",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1ODY3NjE4LCJleHAiOjE3MTU5NTQwMTh9.5_zMPs0xFD_U-AqrzhUWp36n-QfeaO1lalZHnGFNuqM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8094/inscripciones",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"inscripciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inscribir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1NTMzMTE5LCJleHAiOjE3MTU2MTk1MTl9.50rB8tWeuaE-e2Y91ZecFXefnI_9ERwNFGDhSomRKK8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n        \"cursoId\": 2008,\r\n        \"usuarioId\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8094/inscripciones",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"inscripciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BorrarInscripcione",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1OTM1NDI0LCJleHAiOjE3MTYwMjE4MjR9.FBizex-af5PSlTPv4r-ICIDUjAjvB7UHS83Znlys5lM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8094/inscripciones/1002",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"inscripciones",
+								"1002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCursosByUsuarioId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1OTM1NDI0LCJleHAiOjE3MTYwMjE4MjR9.FBizex-af5PSlTPv4r-ICIDUjAjvB7UHS83Znlys5lM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8094/inscripciones/usuario/1/cursos",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"inscripciones",
+								"usuario",
+								"1",
+								"cursos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BorrarInscripcioneCursoByUsuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXNzZW5AZ21haWwuY29tIiwiaWF0IjoxNzE1OTM1NDI0LCJleHAiOjE3MTYwMjE4MjR9.FBizex-af5PSlTPv4r-ICIDUjAjvB7UHS83Znlys5lM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8094/inscripciones/usuario/1/curso/2014",
+							"host": [
+								"localhost"
+							],
+							"port": "8094",
+							"path": [
+								"inscripciones",
+								"usuario",
+								"1",
+								"curso",
+								"2014"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
