@@ -1,0 +1,86 @@
+spring:
+ cloud:
+   gateway:
+     
+     routes:
+       - id: cursos_route
+         uri: lb://servicio-cursos
+         predicates:
+           - Path=/cursos/**
+         filters:
+           - AuthenticationFilter
+           
+       - id: tipo_cursos_route
+         uri: lb://servicio-cursos
+         predicates:
+           - Path=/tipos_cursos/**
+         filters:
+           - AuthenticationFilter
+       
+       - id: inscripciones_route
+         uri: lb://servicio-inscripciones
+         predicates:
+           - Path=/inscripciones/**
+         filters:
+           - AuthenticationFilter
+
+           
+       - id: usuarios_route
+         uri: lb://ms-usuarios-jwt
+         predicates:
+           - Path=/usuarios/**
+         filters:
+           - AuthenticationFilter
+           
+       - id: profesores_route
+         uri: lb://servicio-profesores
+         predicates:
+           - Path=/profesores/**
+         filters:
+           - AuthenticationFilter
+           
+       - id: imagenes_route
+         uri: lb://SERVICIO-IMAGENES
+         predicates:
+           - Path=/imagenes/**
+         filters:
+           - AuthenticationFilter
+           
+       - id: blog_route
+         uri: lb://ms-blog
+         predicates:
+           - Path=/blogs/**
+         filters:
+           - AuthenticationFilter 
+
+       - id: auth_route
+         uri: lb://ms-usuarios-jwt
+         predicates:
+           - Path=/auth/**
+
+
+     default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+        - DedupeResponseHeader=Access-Control-Allow-Methods
+        - DedupeResponseHeader=Access-Control-Allow-Headers   
+     globalcors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedHeaders: "*"
+            allowedMethods:
+              - POST
+              - GET
+              - PUT
+              - DELETE
+              - OPTIONS
+            
+
+ application:
+   name: gateway-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone : http://localhost:8761/eureka/
